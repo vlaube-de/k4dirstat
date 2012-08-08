@@ -29,7 +29,14 @@ using namespace KDirStat;
 
 #define UpdateMinSize	20
 
-
+#define TileColorImage Qt::cyan
+#define TileColorExecutable Qt::magenta
+#define TileColorAudio Qt::yellow
+#define TileColorBackup Qt::red
+#define TileColorArchive Qt::green
+#define TileColorDocument Qt::blue
+#define TileColorVideo QColor( 0xa0, 0xff, 0x00 )
+#define TileColorObject QColor( 0xff, 0xa0, 0x00 )
 
 KTreemapView::KTreemapView( KDirTree * tree, QWidget * parent, const QSize & initialSize )
     : QCanvasView( parent )
@@ -623,68 +630,68 @@ KTreemapView::tileColor( KFileInfo * file )
 
 		// Try case sensitive comparisions first
 
-		if ( ext == "~"		)	return Qt::red;
-		if ( ext == "bak"	)	return Qt::red;
+		if ( ext == "~"		)	return TileColorBackup;
+		if ( ext == "bak"	)	return TileColorBackup;
 
-		if ( ext == "c"		)	return Qt::blue;
-		if ( ext == "cpp"	)	return Qt::blue;
-		if ( ext == "cc"	)	return Qt::blue;
-		if ( ext == "h"		)	return Qt::blue;
-		if ( ext == "hpp"	)	return Qt::blue;
-		if ( ext == "el"	)	return Qt::blue;
+		if ( ext == "c"		)	return TileColorDocuent;
+		if ( ext == "cpp"	)	return TileColorDocuent;
+		if ( ext == "cc"	)	return TileColorDocuent;
+		if ( ext == "h"		)	return TileColorDocuent;
+		if ( ext == "hpp"	)	return TileColorDocuent;
+		if ( ext == "el"	)	return TileColorDocuent;
 
-		if ( ext == "o"		)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "lo"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "Po"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "al"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "moc.cpp"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "moc.cc"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "elc"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "la"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "a"		)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( ext == "rpm"	)	return QColor( 0xff, 0xa0, 0x00 );
+		if ( ext == "o"		)	return TileColorObject;
+		if ( ext == "lo"	)	return TileColorObject;
+		if ( ext == "Po"	)	return TileColorObject;
+		if ( ext == "al"	)	return TileColorObject;
+		if ( ext == "moc.cpp"	)	return TileColorObject;
+		if ( ext == "moc.cc"	)	return TileColorObject;
+		if ( ext == "elc"	)	return TileColorObject;
+		if ( ext == "la"	)	return TileColorObject;
+		if ( ext == "a"		)	return TileColorObject;
+		if ( ext == "rpm"	)	return TileColorObject;
 
-		if ( lowerExt == "tar.bz2" )	return Qt::green;
-		if ( lowerExt == "tar.gz"  )	return Qt::green;
-		if ( lowerExt == "tgz"	)	return Qt::green;
-		if ( lowerExt == "bz2"	)	return Qt::green;
-		if ( lowerExt == "bz"	)	return Qt::green;
-		if ( lowerExt == "gz"	)	return Qt::green;
+		if ( lowerExt == "tar.bz2" )	return TileColorArchive;
+		if ( lowerExt == "tar.gz"  )	return TileColorArchive;
+		if ( lowerExt == "tgz"	)	return TileColorArchive;
+		if ( lowerExt == "bz2"	)	return TileColorArchive;
+		if ( lowerExt == "bz"	)	return TileColorArchive;
+		if ( lowerExt == "gz"	)	return TileColorArchive;
 
-		if ( lowerExt == "html"	)	return Qt::blue;
-		if ( lowerExt == "htm"	)	return Qt::blue;
-		if ( lowerExt == "txt"	)	return Qt::blue;
-		if ( lowerExt == "doc"	)	return Qt::blue;
+		if ( lowerExt == "html"	)	return TileColorDocument;
+		if ( lowerExt == "htm"	)	return TileColorDocument;
+		if ( lowerExt == "txt"	)	return TileColorDocument;
+		if ( lowerExt == "doc"	)	return TileColorDocument;
 
-		if ( lowerExt == "png"	)	return Qt::cyan;
-		if ( lowerExt == "jpg"	)	return Qt::cyan;
-		if ( lowerExt == "jpeg"	)	return Qt::cyan;
-		if ( lowerExt == "gif"	)	return Qt::cyan;
-		if ( lowerExt == "tif"	)	return Qt::cyan;
-		if ( lowerExt == "tiff"	)	return Qt::cyan;
-		if ( lowerExt == "bmp"	)	return Qt::cyan;
-		if ( lowerExt == "xpm"	)	return Qt::cyan;
-		if ( lowerExt == "tga"	)	return Qt::cyan;
+		if ( lowerExt == "png"	)	return TileColorImage;
+		if ( lowerExt == "jpg"	)	return TileColorImage;
+		if ( lowerExt == "jpeg"	)	return TileColorImage;
+		if ( lowerExt == "gif"	)	return TileColorImage;
+		if ( lowerExt == "tif"	)	return TileColorImage;
+		if ( lowerExt == "tiff"	)	return TileColorImage;
+		if ( lowerExt == "bmp"	)	return TileColorImage;
+		if ( lowerExt == "xpm"	)	return TileColorImage;
+		if ( lowerExt == "tga"	)	return TileColorImage;
 
-		if ( lowerExt == "wav"	)	return Qt::yellow;
-		if ( lowerExt == "mp3"	)	return Qt::yellow;
+		if ( lowerExt == "wav"	)	return TileColorAudio;
+		if ( lowerExt == "mp3"	)	return TileColorAudio;
 
-		if ( lowerExt == "avi"	)	return QColor( 0xa0, 0xff, 0x00 );
-		if ( lowerExt == "mov"	)	return QColor( 0xa0, 0xff, 0x00 );
-		if ( lowerExt == "mpg"	)	return QColor( 0xa0, 0xff, 0x00 );
-		if ( lowerExt == "mpeg"	)	return QColor( 0xa0, 0xff, 0x00 );
+		if ( lowerExt == "avi"	)	return TileColorVideo;
+		if ( lowerExt == "mov"	)	return TileColorVideo;
+		if ( lowerExt == "mpg"	)	return TileColorVideo;
+		if ( lowerExt == "mpeg"	)	return TileColorVideo;
 
-		if ( lowerExt == "pdf"	)	return Qt::blue;
-		if ( lowerExt == "ps"	)	return Qt::cyan;
+		if ( lowerExt == "pdf"	)	return TileColorDocument;
+		if ( lowerExt == "ps"	)	return TileColorExecutable;
 
 
 		// Some DOS/Windows types
 
-		if ( lowerExt == "exe"	)	return Qt::magenta;
-		if ( lowerExt == "com"	)	return Qt::magenta;
-		if ( lowerExt == "dll"	)	return QColor( 0xff, 0xa0, 0x00 );
-		if ( lowerExt == "zip"	)	return Qt::green;
-		if ( lowerExt == "arj"	)	return Qt::green;
+		if ( lowerExt == "exe"	)	return TileColorExecutable;
+		if ( lowerExt == "com"	)	return TileColorExecutable;
+		if ( lowerExt == "dll"	)	return TileColorObject;
+		if ( lowerExt == "zip"	)	return TileColorArchive;
+		if ( lowerExt == "arj"	)	return TileColorArchive;
 
 
 		// No match so far? Try the next extension. Some files might have
@@ -696,13 +703,13 @@ KTreemapView::tileColor( KFileInfo * file )
 
 	    // Shared libs
 	    if ( QRegExp( "lib.*\\.so.*" ).exactMatch( file->name() ) )
-		return QColor( 0xff, 0xa0, 0x00 );
+		return TileColorObject;
 
 	    // Very special, but common: Core dumps
-	    if ( file->name() == "core" )	return Qt::red;
+	    if ( file->name() == "core" )	return TileColorBackup;
 
 	    // Special case: Executables
-	    if ( ( file->mode() & S_IXUSR  ) == S_IXUSR )	return Qt::magenta;
+	    if ( ( file->mode() & S_IXUSR  ) == S_IXUSR )	return TileColorExecutable;
 	}
 	else // Directories
 	{
