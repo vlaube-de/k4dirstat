@@ -29,14 +29,14 @@ using namespace KDirStat;
 
 #define UpdateMinSize	20
 
-#define TileColorImage Qt::cyan
-#define TileColorExecutable Qt::magenta
-#define TileColorAudio Qt::yellow
-#define TileColorBackup Qt::red
-#define TileColorArchive Qt::green
-#define TileColorDocument Qt::blue
-#define TileColorVideo QColor( 0xa0, 0xff, 0x00 )
-#define TileColorObject QColor( 0xff, 0xa0, 0x00 )
+#define TileColorImage      QColor( 0x00, 0xb3, 0x8a )
+#define TileColorExecutable QColor( 0xbd, 0x50, 0xa7 )
+#define TileColorAudio      QColor( 0xf1, 0xda, 0x00 )
+#define TileColorBackup     QColor( 0xd7, 0x1e, 0x00 )
+#define TileColorArchive    QColor( 0x55, 0xbb, 0x4d )
+#define TileColorDocument   QColor( 0x00, 0x7e, 0xc6 )
+#define TileColorVideo      QColor( 0xc0, 0xe3, 0x0e )
+#define TileColorObject     QColor( 0xf9, 0x8d, 0x00 )
 
 KTreemapView::KTreemapView( KDirTree * tree, QWidget * parent, const QSize & initialSize )
     : QCanvasView( parent )
